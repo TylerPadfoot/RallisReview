@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" href="js/jquery.mobile-1.4.2/jquery.mobile-1.4.2.css"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.backup.js"></script>
+        <script type="text/javascript" src="js/classie.js"></script>
+        <script type="text/javascript" src="js/fastclick.js"></script>
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="js/jquery.mobile-1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <script src="js/jquery.slides.js"></script>
+        <script src="js/jquery.xdomainajax.js"></script>
+        <script src="js/hammer.min.js"></script>
+
+        <title>Hello World</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        <div data-role="header" data-position="fixed" id="banner" class="shadow">
+            <input type="button" id="naviButton" onclick="toggleMenu()"/>
+            <input type="button" id="refreshButton" onclick="refreshPage()"/>
+            
+            <!--
+             <img src="assets/navbar/search_background.png" style="position:absolute; top:50%; left:50%; margin-left: -111px; margin-top: -17px"/>
+             -->
+            <h1 id="navLocation"> News </h1>
+        </div>
+        
+        
+        
+        <div data-role="page" id="page1" class="page" style="overflow:scroll; -webkit-overflow-scrolling: touch;">
+            <div data-role="panel" id="menuLeft" data-display="overlay" class="navigator">
+                
+                <div data-role="collapsible-set" data-inset="false">
+                    <div style="display:inline-block">
+                        <input type="text" id="searchinput1" data-role="none"/>
+                        <input type="image" id="submitsearch1" src="assets/navbar/search_button.png" onclick="test()"/>
+                    </div>
+                    <ul class="naviList">
+                        <li><a href="javascript:navigate(1)">Home</a></li>
+                        <li><a href="javascript:navigate(2)">News</a></li>
+                        <li><a href="javascript:navigate(3)">Trailers</a></li>
+                        <li><a href="javascript:navigate(4)">Clips</a></li>
+                        <li><a href="javascript:navigate(5)">Reviews</a></li>
+                        <!--
+                         <div class="collapsy" data-role="collapsible" data-content-theme="c" data-inset="false" data-mini="true" data-iconpos="none" data-icon="false">
+                         <h3>Images</h3>
+                         -->
+                        <li><a href="javascript:navigate(6)">Photos</a></li>
+                        <li><a href="javascript:navigate(7)">Posters</a></li>
+                        <li><a href="javascript:navigate(8)">Theatrical Releases</a></li>
+                        <li><a href="javascript:navigate(9)">Blu-Ray &amp; DVD</a></li>
+                        <li><a href="javascript:navigate(10)">Interviews</a></li>
+                        <li><a href="javascript:navigate(11)">Recommendations</a></li>
+                        <li><a href="javascript:navigate(12)">Contact</a></li>
+                        <li><a href="javascript:navigate(13)" id="remove">Remove ads</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="popup" class="box" id="viewer" data-theme="a">
+                <a href="#" data-rel="back" data-role="button" data-theme="a" data-iconpos="notext" class="popupcloser ui-btn-left" ><img src="assets/body/close.png" width="30px"/></a>
+                <div id="content" class="cont">
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+                    </p>
+                </div>
+            </div>
+            <div id="overlay">
+                
+            </div>
+            <div class="app" id="main1">
+                
+                <img id="loader1" class="blink" src="assets/rr.png" style="padding-top:50%; height:80px"/>
+                <div id="content1">
+                </div>
+                <!--
+                 <div id="deviceready" class="blink">
+                 <p class="event listening">Connecting to Device</p>
+                 <p class="event received">Device is Ready</p>
+                 </div>
+                 -->
+                
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div data-role="page" id="page2" class="page" style="overflow:scroll; -webkit-overflow-scrolling: touch;">
+            <div data-role="panel" id="menuLeft1" data-display="overlay" class="navigator">
+                
+                <div data-role="collapsible-set" data-inset="false">
+                    <div style="display:inline-block">
+                        <input type="text" id="searchinput2" data-role="none"/>
+                        <input type="image" id="submitsearch2" src="assets/navbar/search_button.png" onclick="test()"/>
+                    </div>
+                    <ul class="naviList">
+                        <li><a href="javascript:navigate(1)">Home</a></li>
+                        <li><a href="javascript:navigate(2)">News</a></li>
+                        <li><a href="javascript:navigate(3)">Trailers</a></li>
+                        <li><a href="javascript:navigate(4)">Clips</a></li>
+                        <li><a href="javascript:navigate(5)">Reviews</a></li>
+                        <!--
+                         <div class="collapsy" data-role="collapsible" data-content-theme="c" data-inset="false" data-mini="true" data-iconpos="none" data-icon="false">
+                         <h3>Images</h3>
+                         -->
+                        <li><a href="javascript:navigate(6)">Photos</a></li>
+                        <li><a href="javascript:navigate(7)">Posters</a></li>
+                        <li><a href="javascript:navigate(8)">Theatrical Releases</a></li>
+                        <li><a href="javascript:navigate(9)">Blu-Ray &amp; DVD</a></li>
+                        <li><a href="javascript:navigate(10)">Interviews</a></li>
+                        <li><a href="javascript:navigate(11)">Recommendations</a></li>
+                        <li><a href="javascript:navigate(12)">Contact</a></li>
+                        <li><a href="javascript:navigate(13)" id="remove">Remove ads</a></li>
+                    </ul>
+                    
+                </div>
+            </div>
+            <div data-role="popup" class="box" id="viewer" data-theme="a">
+                <a href="#" data-rel="back" data-role="button" data-theme="a" data-iconpos="notext" class="popupcloser ui-btn-left" ><img src="assets/body/close.png" width="30px"/></a>
+                <div id="content" class="cont">
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+                    </p>
+                </div>
+                
+            </div>
+            <div id="overlay">
+                
+            </div>
+            <div class="app" id="main2">
+                
+                <img id="loader2" class="blink" src="assets/rr.png" style="padding-top:50%; height:80px"/>
+                <div id="content2">
+                </div>
+                
+                <!--
+                 <div id="deviceready" class="blink">
+                 <p class="event listening">Connecting to Device</p>
+                 <p class="event received">Device is Ready</p>
+                 </div>
+                 -->
+                
+            </div>
+            
+        </div>
+        
+        
+    </body>
+</html>
+</html>
