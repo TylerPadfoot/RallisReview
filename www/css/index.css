@@ -37,13 +37,13 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
     background:url(../assets/body/body_background.png) top; /* 170px x 200px */
     background-repeat: repeat-x repeat-y;
     position:absolute;             /* position in the center of the screen */
     left:0px;
     top:60px;
-    height:calc(100%-60px);                   /* text area height */
+    height:calc(100% - 60px);                   /* text area height */
     width:100%;                   /* text area width */
     text-align:center;
     z-index:99;                               /* offset horizontal: half of text area width */
@@ -95,7 +95,7 @@ body {
     /*margin-left:25%;*/
 }
     .app {
-        //background-position:left center;
+        /*background-position:left center;*/
         padding:75px 0px 75px 200px;  /* padding-top + padding-bottom + text area = image height */
         margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
                                       /* offset horizontal: half of image width and text area width */
@@ -125,7 +125,7 @@ h1 {
     margin:0px;
     overflow:visible;
     padding:0px;
-    float: center;
+    text-align: center;
     text-align:center;
     color:white;
     
@@ -146,10 +146,10 @@ h1 {
 .loaderImage {
     position:fixed;
     bottom:0;
-    left;0;
+    left:0;
     height:100%;
     
-    float:center;
+    text-align:center;
 }
 .loadingScreen{
     position:fixed;
@@ -198,7 +198,7 @@ h1 {
     width: 85%;
     padding: 4px;
     background-color: #FFFBF2;
-    float: center;
+    text-align: center;
     text-align:left;
     margin-top: 21px;
     margin-bottom: 21px;
@@ -258,7 +258,7 @@ h1 {
     height:100%;
     padding: 4px;
     background-color: transparent;
-    float: center;
+    text-align: center;
     margin-bottom: 20px;
     position: relative;
     
@@ -268,7 +268,7 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     color:white;
-    float:center;
+    text-align:center;
 
 }
 .releases_thumbnails img{
@@ -293,7 +293,7 @@ h1 {
     margin:0;
     list-style:none;
     text-align:center;
-    float:center;
+    text-align:center;
 }
 #slides .slidesjs-pagination li{
     display:inline-block;
@@ -377,7 +377,7 @@ font-size:18px;
 .topbar{
     width:90%;
     position:fixed;
-    float:center;
+    text-align:center;
     top: 40px;
     z-index:999;
 }
