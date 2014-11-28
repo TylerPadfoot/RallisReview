@@ -77,7 +77,7 @@ function initAd(){
     if ( window.plugins && window.plugins.AdMob ) {
         var ad_units = {
             ios : {
-            banner: 'ca-app-pub-9272423458805650/8821604525'
+            banner: 'ca-app-pub-6628465121776691/2133428867'
             }
         };
         var admobid = ( /(android)/i.test(navigator.userAgent) ) ? ad_units.android : ad_units.ios;
@@ -153,15 +153,21 @@ function performNavigation(section){
         page = "#page1"
         document.getElementById('loader1').style.display="inline";
     }
-    
+
+    console.log(currSelectedMonth);
+    console.log(currSelectedYear);
     var currentTime = new Date();
     var currYear = currentTime.getFullYear();
     var currMonth = currentTime.getMonth()+1;
     if(currMonth < 10){
         currMonth = "0"+currMonth;
     }
-    var fullMonth = currYear+""+currMonth;
-    
+    var fullMonth;
+    if(currSelectedMonth !='' && currSelectedYear != ''){
+        fullMonth = currSelectedYear+''+currSelectedMonth;
+    }
+    else{fullMonth = currYear+""+currMonth}
+    console.log(fullMonth);
     switch(section){
         case 1:
             jsonURL = "http://rallisreview.com/?json=get_category_posts&slug=top-stories&count=18";
@@ -255,9 +261,12 @@ function startPage(url, target){
     
 
 }
-
+var blockImageLoads = false;
 function nextImages(album, number, targ){
     var more = document.getElementById("loadmore");
+    var text = document.getElementById("loadmoretext");
+    if(text)
+        text.innerHTML = "Loading...";
     for( var i = 0; i<number; i++){
         
         var xmlhttp2 = new XMLHttpRequest();
@@ -312,13 +321,14 @@ function nextImages(album, number, targ){
                     adiv.appendChild(h);
                     document.getElementById(targ).appendChild(adiv);
                     if(i==number-1){
-                        
-                        
+
+                        blockImageLoads = false;
                         var remaining = album.slice(5);
                         var diva = document.createElement('div');
                         diva.className="moreimages";
                         diva.id="loadmore";
                         var loadmore = document.createElement('a');
+                        loadmore.id = 'loadmoretext';
                         loadmore.className+='noBrowser';
                         loadmore.style.textDecoration = "none";
                         loadmore.style.color="#FFFAF0";
@@ -327,9 +337,11 @@ function nextImages(album, number, targ){
                             loadmore.innerHTML="More Photos";
                         else loadmore.innerHTML="More Posters";
                         loadmore.href = '#';
-                        loadmore.onclick=function(){
-                            loadmore.innerHTML = "Loading...";
-                            setTimeout(function(){nextImages(remaining,number,targ);},50);
+                        diva.onclick=function(){
+                            console.log('LOADING');
+                            document.getElementById('loadmoretext').innerHTML = "Loading...";
+                            blockImageLoads = true;
+                            setTimeout(function(){nextImages(remaining,number,targ);},100);
                         };
                         diva.appendChild(loadmore);
                         diva.innerHTML += "<br><br><br>";
@@ -475,7 +487,7 @@ function getData(url,target,selected){
                         var thumbnailURL ="";
                         date = parseDate(currPost.date);
                         var adiv = document.createElement('div');
-                        
+                        var adivDual = document.createElement('div');
                         if((isTheatrical && slug == "theatrical") || (isBluray && slug == "blu-ray-dvd")){
                             adiv.className = 'releases_thumbnails';
                             if(slug == "theatrical"){
@@ -491,11 +503,10 @@ function getData(url,target,selected){
                             var thumbnail = document.createElement('a');
                             thumbnail.className+='noBrowser';
 
-                            thumbnail.innerHTML="<img style='width:95%; height:85%;' src='"+thumbnailURL+"'/>";
+                            thumbnail.innerHTML="<img src='"+thumbnailURL+"'/>";
                             
                             adiv.appendChild(thumbnail);
-                            
-                            
+
 
                             if (currDay == -1){
                                 currDay = date.getDate();
@@ -562,7 +573,7 @@ function getData(url,target,selected){
                             if(currentTarget != target) return;
                             document.getElementById(targ).appendChild(adiv);
                         }
-                    
+
                         
                         //$( ':mobile-pagecontainer' ).pagecontainer( 'getActivePage' ).find('#main').appendChild(adiv);
                     }
@@ -611,11 +622,13 @@ function getData(url,target,selected){
                         
 
                         html += '<select id="monthSelector" onchange=\'javascript:getNewMonth("'+r+'")\'>';
-                        
+
                         for(var i = 0; i < 12; i++){
-                            var s = "";
-                            if(i<10) s = "0"+(i+1);
-                            else s = i+1;
+                            var s = i+1;
+                            s = s.toString();
+                            while(s.length<2){
+                                s='0'+s;
+                            }
                             if(i==parseInt(currSelectedMonth)-1){
                                 html += '<option value="'+s+'" selected>'+monthStr(i)+'</option>';
                             }
@@ -639,7 +652,7 @@ function getData(url,target,selected){
                         var picker = document.createElement('div');
                         picker.className="pickerStyle";
                         picker.innerHTML=html;
-                        if(currentTarget != target) return;
+//                        if(currentTarget != target) return;
                         document.getElementById(targ).insertBefore(picker,document.getElementById(targ).firstChild);
 
 
@@ -760,7 +773,7 @@ function openItem(url){
 
 function openBrowser(url){
 
-    window.open(url, '_blank','location=no,toolbar=yes','closebuttoncaption="Back"');
+    window.open(url, '_blank','location=no,toolbar=yes','closebuttoncaption="Back"','EnableViewPortScale=yes');
 }
 
 function toggleMenu(){
