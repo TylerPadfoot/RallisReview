@@ -74,7 +74,7 @@ body {
 @media screen and (min-width: 768px){
 .top_story_thumbnails {
     margin-right: 10px !important;
-    margin-left: 42px !important;
+    margin-left: 22px !important;
     width: calc(50% - 70px) !important;
     padding: 4px;
     background-color: #FFFBF2;
@@ -91,8 +91,9 @@ body {
     /*height:100% !important;*/
     /*width: auto !important;*/
 }
-#content{
+#content1, #content2{
     /*margin-left:25%;*/
+    padding-bottom:20px;
 }
     .app {
         /*background-position:left center;*/
@@ -245,7 +246,6 @@ h1 {
     font-size: 10px;
     margin-bottom:3px;
     margin-top:3px;
-;
 }
 .pickerStyle{
     font-size:16px;
