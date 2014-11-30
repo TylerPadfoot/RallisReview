@@ -756,12 +756,13 @@ function hideNavigation(){
 
 function resizePopup(){
     
-    var popup = $( ':mobile-pagecontainer' ).pagecontainer( 'getActivePage' ).find('.cont');
+    var popup = $( ':mobile-pagecontainer' ).pagecontainer( 'getActivePage' ).find('.slidesjs-control img');
 
     //window.setTimeout(function(){popup.parent().css("visibility","visible");},500);
-    if($(window).width()>=768)return;
-    var h = popup.find('img').height();
+//    if($(window).width()>=768)return;
+    var h = popup.height();
     var wh = $(window).height();
+    console.log(h);
     var top = wh/2-h/2;
     popup.css("top", top+"px");
 }
