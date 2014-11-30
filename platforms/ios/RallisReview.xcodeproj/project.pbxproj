@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0FF0A675EFEC47D99C9807F8 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 030516BFDA8443D0839E44EE /* libGoogleAdMobAds.a */; };
 		1A46B6F7683948AD8AB98C96 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84145B3724C94E569491FA28 /* AdSupport.framework */; };

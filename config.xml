@@ -53,7 +53,7 @@
 <!--    <icon gap:platform="blackberry" src="res/icon/blackberry/icon-80.png" />-->
 <!--    <icon gap:platform="blackberry" gap:state="hover" src="res/icon/blackberry/icon-80.png" />-->
 <!--    <icon gap:platform="ios" height="57" src="res/icon/ios/rr-icon.png" width="57" />-->
-<!--    <icon gap:platform="ios" height="72" src="res/icon/ios/rr-icon.png" width="72" />-->
+<!--    <icon gap:platform="ios" height="72" src="res/icon/ios/rr-icon.png" width="72" />-->-->-->
 <!--    <icon gap:platform="ios" height="114" src="res/icon/ios/rr-icon.png" width="114" />-->
 <!--    <icon gap:platform="ios" height="144" src="res/icon/ios/rr-icon.png" width="144" />-->
 <!--    <icon gap:platform="webos" src="res/icon/webos/icon-64.png" />-->
@@ -64,12 +64,13 @@
 <!--    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screen/android/screen-hdpi-portrait.png" />-->
 <!--    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png" />-->
 <!--    <gap:splash gap:platform="blackberry" src="res/screen/blackberry/screen-225.png" />-->
-<!--    <gap:splash gap:platform="ios" height="480" src="res/screen/ios/splashscreen.png" width="320" />-->
-<!--    <gap:splash gap:platform="ios" height="960" src="res/screen/ios/splashscreen.png" width="640" />-->
-<!--    <gap:splash gap:platform="ios" height="1136" src="res/screen/ios/splashscreen.png" width="640" />-->
+<!--    <gap:splash gap:platform="ios" height="480" src="res/screen/ios/Default.png" width="320" />-->
+<!--    <gap:splash gap:platform="ios" height="960" src="res/screen/ios/Default-2x.png" width="640" />-->
 <!--    -->
-<!--    <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/splashscreen.png" width="768" />-->
-<!--    <gap:splash gap:platform="ios" height="768" src="res/screen/ios/splashscreen2.png" width="1024" />-->
+<!--    <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/Default-Portrait.png" width="768" />-->
+<!--    <gap:splash gap:platform="ios" height="768" src="res/screen/ios/Default-Landscape.png" width="1024" />-->
 <!--    <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />-->
+<!--    <gap:splash src="res/screen/ios/Default-568h-2x.png" gap:platform="ios" width="640" height="1136" />-->
+
     <access origin="*" />
 </widget>
